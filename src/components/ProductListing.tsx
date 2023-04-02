@@ -9,7 +9,7 @@ interface Props {
 const ProductListing: React.FunctionComponent<Props> = ({ productData }) => {
   return (
     <ul className="product-listing">
-      {productData.map((item: IProduct) => <ProductCard data={item}/> )}
+      {productData.map((item: IProduct) => <ProductCard key={item.id} data={item}/>)}
     </ul>
   )
 }

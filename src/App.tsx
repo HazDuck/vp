@@ -2,18 +2,18 @@ import React from 'react'
 import Header from './components/Header'
 import LoadingIcon from './components/LoadingIcon';
 import ProductListing from './components/ProductListing';
-import useProductData from './hooks/useProductData';
+import { useProductListing } from './hooks/useProductListing';
+
 import './styles/app.scss';
 
 const App: React.FunctionComponent = () => {
-  const data = useProductData()
-  
+  const { productData } = useProductListing()
   return (
-    !data ? <LoadingIcon /> :
+    !productData ? <LoadingIcon /> :
     (
       <div>
-        <Header total={data.pagination.total}/>
-        <ProductListing productData={data.products}/>
+        <Header total={productData.pagination.total}/>
+        <ProductListing productData={productData.products}/>
       </div>
     )
   )
