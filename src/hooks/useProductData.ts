@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { IListingData } from "../types";
+import { IFetchData, IListingData } from "../types";
 
-const useProductData = () => {
+const useProductData = ( fetchData: IFetchData) => {
   const [productData, setProductData] = useState<IListingData | null>(null)
     useEffect(() => {
       (async () => {
@@ -12,13 +12,7 @@ const useProductData = () => {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-              "query": "toilets",
-              "pageNumber": 0,
-              "size": 66,
-              "additionalPages": 0,
-              "sort": 1
-            })
+            body: JSON.stringify(fetchData)
           });
           const data = await rawResponse.json();
           console.log(data, 'yup');
@@ -27,7 +21,7 @@ const useProductData = () => {
           console.log(error)
         }
       })();
-    }, [])
+    }, [fetchData])
   return productData
 }
 

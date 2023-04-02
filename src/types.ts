@@ -31,5 +31,16 @@ export interface IListingData {
   products: IProduct[]
 }
 
+export interface IFetchData {
+  query: string, 
+  pageNumber: number,
+  size: number,
+  additionalPages: number,
+  sort: number
+}
 
+export interface IState {
+  schema: IFetchData
+}
 
+export type IActionType = 'UPDATE_SCHEMA'
