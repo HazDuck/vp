@@ -3,4 +3,11 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.5rem;
+
+  .header__sort-select {
+    margin-left: 6px;
+    padding: 8px;
+    border: 1px solid $colorBorder;
+    cursor: pointer;
+  }
 }
