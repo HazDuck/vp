@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
+import { IListingData } from "../types";
 
 const useProductData = () => {
-  const [productData, setProductData] = useState(null)
+  const [productData, setProductData] = useState<IListingData | null>(null)
     useEffect(() => {
       (async () => {
         try {
