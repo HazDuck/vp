@@ -43,4 +43,4 @@ export interface IState {
   schema: IFetchData
 }
 
-export type IActionType = 'UPDATE_SCHEMA'
+export type IActionType = 'UPDATE_SCHEMA' | 'UPDATE_PRODUCTS'

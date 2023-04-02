@@ -24,11 +24,13 @@ export const ProductListingProvider: React.FC<IFFetchContext> = ({ children }) =
   const [state, dispatch] = useReducer(reducer, initialState)
   
   const productData = useProductData(state.schema)
+  // const productData = useProductData(state.schema, dispatch, value.actions)
   const value = {
     state,
     productData,
     actions: {
-      updateSchema: (schema: any) => dispatch({type: 'UPDATE_SCHEMA', payload: schema})
+      updateSchema: (schema: any) => dispatch({type: 'UPDATE_SCHEMA', payload: schema}),
+      // updateProdutcs: (products: any) => dispatch({type: 'UPDATE_PRODUCTS', payload: products})
     }
   }
   

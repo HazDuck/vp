@@ -9,7 +9,7 @@ interface Props {
 const ProductCard: React.FunctionComponent<Props> = ({ data }) => {
   return (
     <li className="product-card">
-      <img src={ data.image.url } alt={ data.image.attributes.imageAltText } />
+      <img loading="lazy" src={ data.image.url } alt={ data.image.attributes.imageAltText } />
       <p className='product-card__title'>{data.productName}</p>
       {/* havent taken into account discounted prices etc due to time constraints */}
       <p className='product-card__price'>£{data.price.priceIncTax}</p> 

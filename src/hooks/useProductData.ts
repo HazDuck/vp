@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { IFetchData, IListingData } from "../types";
 
-const useProductData = ( fetchData: IFetchData) => {
+
+const useProductData = ( fetchData: IFetchData ) => {
   const [productData, setProductData] = useState<IListingData | null>(null)
     useEffect(() => {
       (async () => {
@@ -16,6 +17,7 @@ const useProductData = ( fetchData: IFetchData) => {
           });
           const data = await rawResponse.json();
           console.log(data, 'yup');
+          // dispatch(actions.updateProducts(data))
           setProductData(data)
         } catch (error) {
           console.log(error)
