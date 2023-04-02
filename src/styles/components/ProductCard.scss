@@ -1,0 +1,17 @@
+.product-card {
+  img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    margin-bottom: .5rem;
+  }
+  
+  &__price {
+    margin-bottom: .75rem;
+    color: $colorHighlight;
+    font-size: 1.125rem;
+  }
+}

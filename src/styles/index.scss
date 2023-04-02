@@ -104,16 +104,18 @@ button {
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
 
-$color1: #221924;
+$colorText: #221924;
 $colorBackground: #F2F0EB;
+$colorHighlight: #CF0010; 
 $medium: 768px;
+$large: 1024px;
 
 h1, h2, p, a {
-    color: $color1;
+    color: $colorText;
 }
 
 body {
     font-family: 'Open Sans', sans-serif;
     background: $colorBackground;
-    padding: 16px;
+    padding: 1rem;
 }
