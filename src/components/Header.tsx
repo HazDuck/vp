@@ -1,12 +1,16 @@
 import React from 'react'
 
-const Header: React.FunctionComponent = () => {
+interface Props {
+  total: number
+}
+
+const Header: React.FunctionComponent<Props> = ({ total }) => {
   return (
     <div className='header'>
       <select>
         <option value="">Recommended</option>
       </select>
-      <p>702 results</p>
+      <p>{`${total} results`}</p>
     </div>
   )
 }
