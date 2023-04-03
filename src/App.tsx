@@ -1,4 +1,5 @@
 import React from 'react'
+import Filters from './components/Filters';
 import Header from './components/Header'
 import LoadingIcon from './components/LoadingIcon';
 import ProductListing from './components/ProductListing';
@@ -12,9 +13,12 @@ const App: React.FunctionComponent = () => {
     state.loading ? <LoadingIcon /> :
       !state.error ? 
       (
-        <div>
-          <Header total={state.data.pagination.total}/>
-          <ProductListing/>
+        <div className='flex'>
+          <Filters />
+          <div>
+            <Header total={state.data.pagination.total}/>
+            <ProductListing/>
+          </div>
         </div>
       ) : (
         <p>{state.error}</p>

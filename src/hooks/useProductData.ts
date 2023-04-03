@@ -17,7 +17,6 @@ const useProductData = (fetchData: IFetchData, actions: any) => {
           body: JSON.stringify(fetchData)
         });
         const data = await rawResponse.json();
-        console.log(data, 'yup')
         actions.fetchSuccess(data)
       } catch (error) {
         console.log(error)

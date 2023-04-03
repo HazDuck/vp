@@ -9,7 +9,8 @@ const initialState: IState = {
     pageNumber: 1,
     size: 30,
     additionalPages: 0,
-    sort: 1
+    sort: 1,
+    facets: {}
   }
 }
 

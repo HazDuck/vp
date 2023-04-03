@@ -36,14 +36,15 @@ export interface IFetchData {
   pageNumber: number,
   size: number,
   additionalPages: number,
-  sort: number
+  sort: number,
+  facets: any
 }
 
 export interface IState {
   schema: IFetchData,
   loading: boolean,
   error: string,
-  data: any
+  data: any,
 }
 
 export type IActionType = 'UPDATE_SCHEMA' | 'UPDATE_PRODUCTS' | 'FETCH_SUCCESS' | 'FETCH_ERROR'
