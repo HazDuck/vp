@@ -10,12 +10,15 @@ const App: React.FunctionComponent = () => {
   const { state } = useProductListing()
   return (
     state.loading ? <LoadingIcon /> :
-    (
-      <div>
-        <Header total={state.data.pagination.total}/>
-        <ProductListing/>
-      </div>
-    )
+      !state.error ? 
+      (
+        <div>
+          <Header total={state.data.pagination.total}/>
+          <ProductListing/>
+        </div>
+      ) : (
+        <p>{state.error}</p>
+      )
   )
 }
 
