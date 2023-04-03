@@ -33,15 +33,17 @@ const Filters = () => {
       <h2>Filters</h2>
 
       <label>{oosObj.displayName}</label>
-      <input 
-        type="checkbox" 
-        id="oos" 
-        name="oos" 
-        value={oosObj.options[0].value}
-        checked={isChecked}
-        onChange={handleOnChange}
-        />
-        <p>{oosObj.options[0].displayValue}</p>
+      <div className="flex">
+        <input 
+          type="checkbox" 
+          id="oos" 
+          name="oos" 
+          value={oosObj.options[0].value}
+          checked={isChecked}
+          onChange={handleOnChange}
+          />
+          <p>{oosObj.options[0].displayValue}</p>
+      </div>
         <p>({oosObj.options[0].productCount})</p>
     </div>) : null)
 }
