@@ -4,7 +4,7 @@ import { IFetchData,
 } from "../types";
 
 
-const useProductData = ( fetchData: IFetchData, actions: any) => {
+const useProductData = (fetchData: IFetchData, actions: any) => {
     useEffect(() => {
       (async () => {
         try {
@@ -17,16 +17,20 @@ const useProductData = ( fetchData: IFetchData, actions: any) => {
             body: JSON.stringify(fetchData)
           });
           const data = await rawResponse.json();
-          console.log(data, 'yup');
-          actions.fetchSuccess(data)
+
+          //pagination request vs refresh
+          if (fetchData.pageNumber < 2) {
+            actions.fetchSuccess(data)
+          } else {
+            actions.fetchSuccessLoadMore(data)
+          }
+
         } catch (error) {
           console.log(error)
-          // setProductData({})
+          actions.fetchError()
         }
       })();
-    }, [
-      // fetchData
-    ])
+    }, [fetchData])
 }
 
 export default useProductData

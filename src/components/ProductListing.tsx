@@ -6,8 +6,9 @@ import ProductCard from './ProductCard'
 
 const ProductListing: React.FunctionComponent = () => {
   const { actions: { updateSchema } } = useProductListing()
-  const [pageNumber, setPageNumber] = useState(1)
+  const [pageNumber, setPageNumber] = useState(2)
   const { state } = useProductListing()
+
   return (
     <>
       <ul className="product-listing">
