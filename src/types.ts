@@ -46,4 +46,4 @@ export interface IState {
   data: any
 }
 
-export type IActionType = 'UPDATE_SCHEMA' | 'UPDATE_PRODUCTS' | 'FETCH_SUCCESS' | 'FETCH_ERROR' | 'FETCH_SUCCESS_LOAD_MORE'
+export type IActionType = 'UPDATE_SCHEMA' | 'UPDATE_PRODUCTS' | 'FETCH_SUCCESS' | 'FETCH_ERROR'

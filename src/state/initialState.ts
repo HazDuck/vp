@@ -6,7 +6,7 @@ const initialState: IState = {
   data: {},
   schema: {
     query: "toilets",
-    pageNumber: 0,
+    pageNumber: 1,
     size: 30,
     additionalPages: 0,
     sort: 1

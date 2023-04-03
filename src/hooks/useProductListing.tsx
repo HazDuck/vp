@@ -25,9 +25,7 @@ export const ProductListingProvider: React.FC<IFFetchContext> = ({ children }) =
   const actions = {
     updateSchema: (schema: any) => dispatch({type: 'UPDATE_SCHEMA', payload: schema}),
     fetchSuccess: (data: any) => dispatch({type: 'FETCH_SUCCESS', payload: data}),
-    fetchSuccessLoadMore: (data: any) => dispatch({type: 'FETCH_SUCCESS_LOAD_MORE', payload: data}),
     fetchError: (data: any) => dispatch({type: 'FETCH_ERROR', payload: null}),
-    // updateProducts: (products: any) => dispatch({type: 'UPDATE_PRODUCTS', payload: products})
   }
 
   //data fetcher
