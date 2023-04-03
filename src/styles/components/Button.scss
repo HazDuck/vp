@@ -1,0 +1,11 @@
+.button {
+  background-color: $colorButton;
+  color: $colorText2;
+  border-radius: .25rem;
+  padding: .5rem;
+  cursor: pointer;
+
+  &.spacer {
+    margin-left: .5rem;
+  }
+}

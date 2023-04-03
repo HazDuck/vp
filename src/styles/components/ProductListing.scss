@@ -6,4 +6,9 @@
   @media screen and (min-width: $medium) {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  &__button-container {
+    margin: 1rem 0;
+    text-align: center;
+  }
 }
