@@ -40,7 +40,10 @@ export interface IFetchData {
 }
 
 export interface IState {
-  schema: IFetchData
+  schema: IFetchData,
+  loading: boolean,
+  error: string,
+  data: any
 }
 
-export type IActionType = 'UPDATE_SCHEMA' | 'UPDATE_PRODUCTS'
+export type IActionType = 'UPDATE_SCHEMA' | 'UPDATE_PRODUCTS' | 'FETCH_SUCCESS' | 'FETCH_ERROR'

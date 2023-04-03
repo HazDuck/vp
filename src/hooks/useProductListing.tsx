@@ -1,7 +1,8 @@
 import React, { 
   createContext, 
   useContext,
-  useReducer
+  useReducer, 
+
 } from 'react'
 import initialState from '../state/initialState';
 import reducer from '../state/reducer';
@@ -15,25 +16,25 @@ export interface IFFetchContext {
 export interface IProductListingContext {
   state: IState,
   actions: any,
-  productData: any
 }
 
 export const ProductListingContext = createContext({} as IProductListingContext)
 
 export const ProductListingProvider: React.FC<IFFetchContext> = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState)
-  
-  const productData = useProductData(state.schema)
-  // const productData = useProductData(state.schema, dispatch, value.actions)
+  const [state, dispatch] = useReducer(reducer, initialState)  
+  const actions = {
+    updateSchema: (schema: any) => dispatch({type: 'UPDATE_SCHEMA', payload: schema}),
+    fetchSuccess: (data: any) => dispatch({type: 'FETCH_SUCCESS', payload: data}),
+    fetchError: (data: any) => dispatch({type: 'FETCH_ERROR', payload: null}),
+    // updateProducts: (products: any) => dispatch({type: 'UPDATE_PRODUCTS', payload: products})
+  }
+  useProductData(state.schema, actions)
+
   const value = {
     state,
-    productData,
-    actions: {
-      updateSchema: (schema: any) => dispatch({type: 'UPDATE_SCHEMA', payload: schema}),
-      // updateProdutcs: (products: any) => dispatch({type: 'UPDATE_PRODUCTS', payload: products})
-    }
+    actions
   }
-  
+
   return (
     <ProductListingContext.Provider value={value}>
       {children}

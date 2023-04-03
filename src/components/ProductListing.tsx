@@ -3,17 +3,15 @@ import { useProductListing } from '../hooks/useProductListing'
 import { IProduct } from '../types'
 import ProductCard from './ProductCard'
 
-interface Props {
-  productData: IProduct[]
-}
 
-const ProductListing: React.FunctionComponent<Props> = ({ productData }) => {
+const ProductListing: React.FunctionComponent = () => {
   const { actions: { updateSchema } } = useProductListing()
   const [pageNumber, setPageNumber] = useState(1)
+  const { state } = useProductListing()
   return (
     <>
       <ul className="product-listing">
-        {productData.map((item: IProduct) => <ProductCard key={item.id} data={item}/>)}
+        {state.data.products.map((item: IProduct) => <ProductCard key={item.id} data={item}/>)}
       </ul>
       <button onClick={() => {
         updateSchema({pageNumber: pageNumber})

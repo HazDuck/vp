@@ -1,6 +1,9 @@
 import { IState } from "../types"
 
 const initialState: IState = {
+  loading: true, 
+  error: '',
+  data: {},
   schema: {
     query: "toilets",
     pageNumber: 0,

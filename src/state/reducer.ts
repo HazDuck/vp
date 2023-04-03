@@ -14,7 +14,13 @@ const reducer = (state: IState, action: {type: IActionType, payload: any}) => {
         schema: newSchema
       }
     }
-
+    case 'FETCH_SUCCESS': {
+      return {
+        ...state, 
+        data: action.payload,
+        loading: false
+      }
+    }
     default:
       return state;
   }

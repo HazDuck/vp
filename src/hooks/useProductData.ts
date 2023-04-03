@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react"
-import { IFetchData, IListingData } from "../types";
+import { useEffect } from "react"
+import { IFetchData, 
+  // IListingData 
+} from "../types";
 
 
-const useProductData = ( fetchData: IFetchData ) => {
-  const [productData, setProductData] = useState<IListingData | null>(null)
+const useProductData = ( fetchData: IFetchData, actions: any) => {
     useEffect(() => {
       (async () => {
         try {
@@ -17,14 +18,15 @@ const useProductData = ( fetchData: IFetchData ) => {
           });
           const data = await rawResponse.json();
           console.log(data, 'yup');
-          // dispatch(actions.updateProducts(data))
-          setProductData(data)
+          actions.fetchSuccess(data)
         } catch (error) {
           console.log(error)
+          // setProductData({})
         }
       })();
-    }, [fetchData])
-  return productData
+    }, [
+      // fetchData
+    ])
 }
 
 export default useProductData
