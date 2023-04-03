@@ -1,11 +1,9 @@
 import { useEffect } from "react"
-import { IFetchData, 
-  // IListingData 
-} from "../types";
-
+import { IFetchData } from "../types";
 
 const useProductData = (fetchData: IFetchData, actions: any) => {
   useEffect(() => {
+    const abortController = new AbortController();
     (async () => {
       try {
         const rawResponse = await fetch('https://spanishinquisition.victorianplumbing.co.uk/interviews/listings?apikey=yj2bV48J40KsBpIMLvrZZ1j1KwxN4u3A83H8IBvI', {
@@ -22,7 +20,10 @@ const useProductData = (fetchData: IFetchData, actions: any) => {
         console.log(error)
         actions.fetchError()
       }
-    })();
+    })()
+    return () => {
+      abortController.abort()
+    }
   }, [fetchData])
 }
 

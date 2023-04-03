@@ -1,12 +1,11 @@
 import React, { 
   createContext, 
   useContext,
-  useReducer, 
-
+  useReducer
 } from 'react'
 import initialState from '../state/initialState';
 import reducer from '../state/reducer';
-import { IState } from '../types';
+import { IFetchData, IListingData, IState } from '../types';
 import useProductData from './useProductData';
 
 export interface IFFetchContext {
@@ -23,9 +22,9 @@ export const ProductListingContext = createContext({} as IProductListingContext)
 export const ProductListingProvider: React.FC<IFFetchContext> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)  
   const actions = {
-    updateSchema: (schema: any) => dispatch({type: 'UPDATE_SCHEMA', payload: schema}),
-    fetchSuccess: (data: any) => dispatch({type: 'FETCH_SUCCESS', payload: data}),
-    fetchError: (data: any) => dispatch({type: 'FETCH_ERROR', payload: null}),
+    updateSchema: (schema: IFetchData) => dispatch({type: 'UPDATE_SCHEMA', payload: schema}),
+    fetchSuccess: (data: IListingData) => dispatch({type: 'FETCH_SUCCESS', payload: data}),
+    fetchError: () => dispatch({type: 'FETCH_ERROR', payload: null}),
   }
 
   //data fetcher
